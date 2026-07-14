@@ -1,0 +1,1573 @@
+/* ==========================================================
+   DAILY TRACKER
+   PART 1
+========================================================== */
+
+/* ---------- RESET ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+
+    --green:#16a34a;
+    --yellow:#f59e0b;
+    --red:#dc2626;
+
+    --bg:#eef3f9;
+    --card:#ffffff;
+
+    --border:#d8e2ef;
+
+    --text:#1f2937;
+    --subtext:#6b7280;
+
+    --radius:18px;
+
+    --shadow:
+        0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* ---------- BODY ---------- */
+
+body{
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    margin:0;
+
+}
+/* ---------- HEADER ---------- */
+
+.top-header{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:35px;
+
+}
+
+.top-header h1{
+
+    color:var(--primary);
+
+    font-size:34px;
+
+    margin-bottom:25px;
+
+}
+
+.overall-container{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.overall-container span:first-child{
+
+    width:220px;
+
+    font-weight:600;
+
+}
+
+#overallPercent{
+
+    width:60px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    text-align:right;
+
+}
+
+/* ---------- PROGRESS BAR ---------- */
+
+.progress-bar{
+
+    flex:1;
+
+    height:18px;
+
+    background:#e5e7eb;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+}
+
+.progress-bar div{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #16a34a
+    );
+
+    transition:.5s;
+
+}
+
+/* ---------- COURSE CARD ---------- */
+
+.course{
+
+    background:var(--card);
+
+    margin-bottom:35px;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    padding:25px;
+
+}
+
+.course-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+.course-header h2{
+
+    color:var(--primary);
+
+    font-size:26px;
+
+}
+
+.coursePercent{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:var(--green);
+
+}
+
+.course .progress-bar{
+
+    margin-bottom:25px;
+
+}
+
+/* ---------- TABLE ---------- */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+thead th{
+
+    padding:14px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+tbody td{
+
+    padding:12px;
+
+    border-bottom:1px solid var(--border);
+
+    text-align:center;
+
+}
+
+/* Alternate rows */
+
+tbody tr:nth-child(even){
+
+    background:#fafbfd;
+
+}
+
+/* Hover */
+
+tbody tr:hover{
+
+    background:#edf5ff;
+
+}
+
+/* ---------- COLUMN WIDTHS ---------- */
+
+th:nth-child(1),
+td:nth-child(1){
+
+    width:100px;
+
+}
+
+th:nth-child(2),
+td:nth-child(2){
+
+    width:130px;
+
+}
+
+th:nth-child(3),
+td:nth-child(3){
+
+    width:38%;
+
+    text-align:left;
+
+    padding-left:18px;
+
+}
+
+th:nth-child(4),
+td:nth-child(4),
+
+th:nth-child(5),
+td:nth-child(5),
+
+th:nth-child(6),
+td:nth-child(6),
+
+th:nth-child(7),
+td:nth-child(7){
+
+    width:90px;
+
+}
+
+th:last-child,
+td:last-child{
+
+    width:90px;
+
+    font-weight:bold;
+
+}
+
+/* ---------- Editable Cells ---------- */
+
+.date,
+.topic{
+
+    outline:none;
+
+}
+
+.date:focus,
+.topic:focus{
+
+    background:#fff8dc;
+
+}
+
+/* ---------- Scroll for Small Screens ---------- */
+
+.course{
+
+    overflow-x:auto;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   DAILY TRACKER
+   PART 2
+========================================================== */
+
+
+/* ==========================================
+   STICKY TABLE HEADER
+========================================== */
+
+thead th{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+}
+
+
+/* ==========================================
+   MODERN CHECKBOXES
+========================================== */
+
+input[type="checkbox"]{
+
+    width:20px;
+
+    height:20px;
+
+    cursor:pointer;
+
+    accent-color:#16a34a;
+
+    transform:scale(1.15);
+
+    transition:.25s;
+
+}
+
+input[type="checkbox"]:hover{
+
+    transform:scale(1.3);
+
+}
+
+
+/* ==========================================
+   DAILY % COLUMN
+========================================== */
+
+.daily-progress{
+
+    font-weight:700;
+
+    font-size:15px;
+
+}
+
+
+/* ==========================================
+   COURSE CARD HOVER
+========================================== */
+
+.course{
+
+    transition:.30s;
+
+}
+
+.course:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.12);
+
+}
+
+
+/* ==========================================
+   TABLE ROW ANIMATION
+========================================== */
+
+tbody tr{
+
+    transition:.25s;
+
+}
+
+
+/* ==========================================
+   TOP BUTTON
+========================================== */
+
+#topButton{
+
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+}
+
+#topButton:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-5px);
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+    body{
+
+        padding:20px;
+
+    }
+
+    .course{
+
+        overflow-x:auto;
+
+    }
+
+    table{
+
+        min-width:950px;
+
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    .top-header h1{
+
+        font-size:28px;
+
+    }
+
+    .course-header h2{
+
+        font-size:22px;
+
+    }
+
+    .coursePercent{
+
+        font-size:18px;
+
+    }
+
+}
+
+
+/* ==========================================
+   SMOOTH SCROLL
+========================================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+/* ==========================================
+   SELECTION COLOR
+========================================== */
+
+::selection{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+/* ==========================================
+   NICE SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+    height:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#edf2f7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#b7c3d0;
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#94a3b8;
+
+}
+
+
+/* ==========================================
+   TABLE SHADOW
+========================================== */
+
+table{
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+
+/* ==========================================
+   DATE & TOPIC
+========================================== */
+
+.date{
+
+    min-width:110px;
+
+}
+
+.topic{
+
+    min-width:350px;
+
+}
+
+
+/* ==========================================
+   PROGRESS ANIMATION
+========================================== */
+
+.progress-bar div{
+
+    transition:
+        width .5s ease-in-out;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   DAILY TRACKER
+   PART 3
+========================================================== */
+
+
+/* ==========================================
+   COURSE HEADER
+========================================== */
+
+.course-header{
+
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:.3s;
+
+}
+
+.course-header:hover{
+
+    color:var(--primary-dark);
+
+}
+
+
+/* ==========================================
+   COLLAPSE ICON (for later JS)
+========================================== */
+
+.course-header::after{
+
+    content:"▼";
+
+    font-size:16px;
+
+    color:#64748b;
+
+    transition:.3s;
+
+}
+
+.course.collapsed .course-header::after{
+
+    transform:rotate(-90deg);
+
+}
+
+
+/* ==========================================
+   COLLAPSED COURSE
+========================================== */
+
+.course.collapsed table{
+
+    display:none;
+
+}
+
+.course.collapsed .progress-bar{
+
+    display:none;
+
+}
+
+
+/* ==========================================
+   DAILY STATUS COLORS
+========================================== */
+
+.daily-low{
+
+    color:#dc2626;
+
+    font-weight:bold;
+
+}
+
+.daily-medium{
+
+    color:#f59e0b;
+
+    font-weight:bold;
+
+}
+
+.daily-high{
+
+    color:#16a34a;
+
+    font-weight:bold;
+
+}
+
+
+/* ==========================================
+   ROW COLORS
+========================================== */
+
+.completed-row{
+
+    background:#eafaf0 !important;
+
+}
+
+.partial-row{
+
+    background:#fff8e6 !important;
+
+}
+
+
+/* ==========================================
+   INPUT ANIMATION
+========================================== */
+
+.date,
+.topic{
+
+    transition:.25s;
+
+}
+
+.date:hover,
+.topic:hover{
+
+    background:#f4f8ff;
+
+}
+
+
+/* ==========================================
+   COURSE TITLE
+========================================== */
+
+.course-header h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+/* ==========================================
+   TABLE ROUNDING
+========================================== */
+
+thead tr th:first-child{
+
+    border-top-left-radius:8px;
+
+}
+
+thead tr th:last-child{
+
+    border-top-right-radius:8px;
+
+}
+
+
+/* ==========================================
+   EMPTY CELLS
+========================================== */
+
+.date:empty::before{
+
+    content:"Click";
+
+    color:#b0b0b0;
+
+}
+
+.topic:empty::before{
+
+    content:"Enter Topic";
+
+    color:#b0b0b0;
+
+}
+
+
+/* ==========================================
+   FOCUS EFFECT
+========================================== */
+
+.date:focus,
+.topic:focus{
+
+    border-radius:4px;
+
+    padding:6px;
+
+}
+
+
+/* ==========================================
+   HEADER SHADOW
+========================================== */
+
+thead{
+
+    box-shadow:0 2px 8px rgba(0,0,0,.12);
+
+}
+
+
+/* ==========================================
+   PAGE ANIMATION
+========================================== */
+
+body{
+
+    animation:fadeIn .5s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+   CARD ANIMATION
+========================================== */
+
+.course{
+
+    animation:slideUp .5s ease;
+
+}
+
+@keyframes slideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+   FOOTER (Future)
+========================================== */
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    margin-top:70px;
+
+    padding:35px;
+
+    text-align:center;
+
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+
+    color:white;
+
+    border-radius:20px 20px 0 0;
+
+    box-shadow:0 -5px 20px rgba(0,0,0,.15);
+
+}
+
+footer h3{
+
+    font-size:26px;
+
+    margin-bottom:10px;
+
+}
+
+footer p{
+
+    margin:6px 0;
+
+    font-size:16px;
+
+}
+
+.footer-text{
+
+    color:#dbeafe;
+
+    font-size:15px;
+
+}
+
+/* ==========================================
+   PRINT
+========================================== */
+
+@media print{
+
+    #topButton{
+
+        display:none;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   INPUT BOXES
+========================================================== */
+
+.date,
+.topic{
+
+    width:100%;
+
+    padding:8px 10px;
+
+    font-size:15px;
+
+    font-family:"Segoe UI",sans-serif;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:8px;
+
+    outline:none;
+
+    background:white;
+
+    transition:0.25s;
+
+}
+
+.date{
+
+    min-width:140px;
+
+}
+
+.topic{
+
+    min-width:350px;
+
+    font-weight:500;
+
+}
+
+.date:focus,
+.topic:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+/* Placeholder */
+
+.topic::placeholder{
+
+    color:#94a3b8;
+
+}
+
+/* Make table text slightly larger */
+
+table{
+
+    font-size:15px;
+
+}
+
+thead th{
+
+    font-size:16px;
+
+}
+
+tbody td{
+
+    font-size:15px;
+
+}
+
+/* Lecture column */
+
+tbody td:first-child{
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+/* Daily Progress */
+
+.daily-progress{
+
+    font-size:16px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    margin-top:60px;
+
+    padding:35px;
+
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+
+    color:white;
+
+    text-align:center;
+
+}
+
+footer h3{
+
+    font-size:26px;
+
+    margin-bottom:10px;
+
+}
+
+footer p{
+
+    margin:6px 0;
+
+}
+
+.footer-text{
+
+    color:#dbeafe;
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================================
+   DAILY TRACKER SEARCH BOX
+====================================================== */
+
+.search-box {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 20px auto;
+
+}
+
+
+#dailySearch {
+
+    width: 60%;
+
+    max-width: 600px;
+
+    padding: 12px 18px;
+
+    font-size: 16px;
+
+    border-radius: 25px;
+
+    border: 2px solid #3498db;
+
+    outline: none;
+
+    background: white;
+
+    transition: 0.3s ease;
+
+}
+
+
+#dailySearch:focus {
+
+    border-color: #2ecc71;
+
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+
+}
+
+
+#dailySearch::placeholder {
+
+    color: #777;
+
+}
+
+
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+
+
+    #dailySearch {
+
+        width: 90%;
+
+        font-size: 14px;
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   SEMESTER DASHBOARD
+========================================================== */
+
+.dashboard{
+
+    width:95%;
+
+    max-width:1200px;
+
+    margin:30px auto;
+
+    padding:20px;
+
+    background:#ffffff;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+
+}
+
+.dashboard h2{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    color:#2c3e50;
+
+}
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:20px;
+
+}
+
+.dashboard-card:last-child{
+
+    grid-column:1 / -1;
+
+    max-width:450px;
+
+    justify-self:center;
+
+}
+
+.dashboard-card{
+
+    background:#f8f9fa;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    text-align:center;
+
+    transition:.3s;
+
+    border:2px solid transparent;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#3498db;
+
+    box-shadow:0 5px 15px rgba(52,152,219,.25);
+
+}
+
+.dashboard-card h3{
+
+    margin-bottom:10px;
+
+    color:#555;
+
+    font-size:17px;
+
+}
+
+.dashboard-card p{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    color:#3498db;
+
+}
+
+
+
+
+
+#lastUpdated{
+
+    font-size:18px;
+
+    line-height:1.5;
+
+    color:#2c3e50;
+
+    word-break:break-word;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 50px;
+
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+
+    color:white;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
+
+}
+
+.logo{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.logo{
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.logo span{
+
+    font-size:13px;
+
+    opacity:.9;
+
+    margin-top:3px;
+
+}
+
+.navbar ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:35px;
+
+}
+
+.navbar a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.navbar a:hover{
+
+    color:#fde047;
+
+}
+
+.active{
+
+    color:#fde047 !important;
+
+}
+
+/* ========
+
+
+
+
+
+
+
+/* ==========================================
+   DARK MODE BUTTON
+========================================== */
+
+.theme-btn{
+
+    background:white;
+
+    color:#2563eb;
+
+    border:none;
+
+    border-radius:50%;
+
+    width:45px;
+
+    height:45px;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.theme-btn:hover{
+
+    transform:scale(1.1);
+
+    background:#f3f4f6;
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+body.dark{
+
+    --bg:#0f172a;
+    --card:#1e293b;
+
+    --text:#f8fafc;
+    --subtext:#cbd5e1;
+
+    --border:#475569;
+
+    --primary:#60a5fa;
+    --primary-dark:#3b82f6;
+
+    background:var(--bg);
+    color:var(--text);
+
+}
+
+/* Cards */
+
+body.dark .course,
+body.dark .top-header,
+body.dark .dashboard,
+body.dark details{
+
+    background:var(--card);
+    color:var(--text);
+
+}
+
+/* Tables */
+
+body.dark table{
+
+    background:var(--card);
+
+}
+
+body.dark tbody tr:nth-child(even){
+
+    background:#263244;
+
+}
+
+body.dark tbody tr:hover{
+
+    background:#334155;
+
+}
+
+/* Inputs */
+
+body.dark input,
+body.dark textarea{
+
+    background:#334155;
+
+    color:white;
+
+    border:1px solid #64748b;
+
+}
+
+/* Search box */
+
+body.dark #searchInput,
+body.dark #dailySearch{
+
+    background:#334155;
+
+    color:white;
+
+}
+
+/* Footer */
+
+body.dark footer{
+
+    background:#0f172a;
+
+}
+
+/* Theme button */
+
+body.dark .theme-btn{
+
+    background:#334155;
+
+    color:#fde047;
+
+}

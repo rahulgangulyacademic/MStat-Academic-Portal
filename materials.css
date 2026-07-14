@@ -1,0 +1,630 @@
+/* ==========================================================
+   GOOGLE FONT
+========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================
+   GENERAL
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#eef3f9;
+
+    color:#2d3748;
+
+}
+
+/* ==========================================================
+   NAVIGATION BAR
+========================================================== */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 50px;
+
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+
+    color:white;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
+
+}
+
+.logo{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.logo{
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.logo span{
+
+    font-size:13px;
+
+    opacity:.9;
+
+    margin-top:3px;
+
+}
+
+.navbar ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:35px;
+
+}
+
+.navbar a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.navbar a:hover{
+
+    color:#fde047;
+
+}
+
+.active{
+
+    color:#fde047 !important;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+header{
+
+    text-align:center;
+
+    padding:55px 20px 40px;
+
+}
+
+header h1{
+
+    font-size:42px;
+
+    color:#1e3a8a;
+
+    margin-bottom:10px;
+
+}
+
+header p{
+
+    color:#64748b;
+
+    font-size:18px;
+
+}
+
+/* ==========================================================
+   SEARCH BAR
+========================================================== */
+
+.search-box{
+
+    width:90%;
+
+    max-width:650px;
+
+    margin:25px auto 50px;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:16px 22px;
+
+    border:none;
+
+    border-radius:15px;
+
+    font-size:16px;
+
+    outline:none;
+
+    background:white;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.search-box input:focus{
+
+    box-shadow:0 10px 30px rgba(37,99,235,.25);
+
+}
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.container{
+
+    width:92%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+    padding-bottom:60px;
+
+}
+
+/* ==========================================================
+   COURSE CARD
+========================================================== */
+
+.course{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:28px 32px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.course:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+.course h2{
+
+    font-size:28px;
+
+    color:#1e40af;
+
+    margin-bottom:22px;
+
+    border-bottom:2px solid #e2e8f0;
+
+    padding-bottom:12px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   DETAILS (Accordion)
+========================================================== */
+
+details{
+
+    margin-bottom:18px;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    background:#f8fafc;
+
+    border:1px solid #e2e8f0;
+
+    transition:.3s;
+
+}
+
+details:hover{
+
+    border-color:#2563eb;
+
+    box-shadow:0 6px 15px rgba(37,99,235,.12);
+
+}
+
+summary{
+
+    list-style:none;
+
+    cursor:pointer;
+
+    padding:16px 22px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    user-select:none;
+
+    transition:.3s;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+summary::-webkit-details-marker{
+
+    display:none;
+
+}
+
+/* Arrow */
+
+summary::after{
+
+    content:"▼";
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+details[open] summary::after{
+
+    transform:rotate(180deg);
+
+}
+
+/* Different Colors */
+
+details:nth-of-type(1) summary{
+
+    background:#dbeafe;
+
+    color:#1d4ed8;
+
+}
+
+details:nth-of-type(2) summary{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
+
+details:nth-of-type(3) summary{
+
+    background:#ffedd5;
+
+    color:#ea580c;
+
+}
+
+details:nth-of-type(4) summary{
+
+    background:#ede9fe;
+
+    color:#7c3aed;
+
+}
+
+/* ==========================================================
+   PDF LIST
+========================================================== */
+
+details ul{
+
+    list-style:none;
+
+    background:white;
+
+}
+
+details li{
+
+    border-top:1px solid #eef2f7;
+
+}
+
+details li:first-child{
+
+    border-top:none;
+
+}
+
+details a{
+
+    display:block;
+
+    padding:14px 22px;
+
+    text-decoration:none;
+
+    color:#374151;
+
+    font-size:16px;
+
+    transition:.25s;
+
+}
+
+details a:hover{
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    padding-left:34px;
+
+}
+
+
+
+
+
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    margin-top:70px;
+
+    padding:35px;
+
+    text-align:center;
+
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+
+    color:white;
+
+    border-radius:20px 20px 0 0;
+
+    box-shadow:0 -5px 20px rgba(0,0,0,.15);
+
+}
+
+footer h3{
+
+    font-size:26px;
+
+    margin-bottom:10px;
+
+}
+
+footer p{
+
+    margin:6px 0;
+
+    font-size:16px;
+
+}
+
+.footer-text{
+
+    color:#dbeafe;
+
+    font-size:15px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   DARK MODE BUTTON
+========================================== */
+
+.theme-btn{
+
+    background:white;
+
+    color:#2563eb;
+
+    border:none;
+
+    border-radius:50%;
+
+    width:45px;
+
+    height:45px;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.theme-btn:hover{
+
+    transform:scale(1.1);
+
+    background:#f3f4f6;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+body.dark{
+
+    --bg:#0f172a;
+    --card:#1e293b;
+
+    --text:#f8fafc;
+    --subtext:#cbd5e1;
+
+    --border:#475569;
+
+    --primary:#60a5fa;
+    --primary-dark:#3b82f6;
+
+    background:var(--bg);
+    color:var(--text);
+
+}
+
+/* Cards */
+
+body.dark .course,
+body.dark .top-header,
+body.dark .dashboard,
+body.dark details{
+
+    background:var(--card);
+    color:var(--text);
+
+}
+
+/* Tables */
+
+body.dark table{
+
+    background:var(--card);
+
+}
+
+body.dark tbody tr:nth-child(even){
+
+    background:#263244;
+
+}
+
+body.dark tbody tr:hover{
+
+    background:#334155;
+
+}
+
+/* Inputs */
+
+body.dark input,
+body.dark textarea{
+
+    background:#334155;
+
+    color:white;
+
+    border:1px solid #64748b;
+
+}
+
+/* Search box */
+
+body.dark #searchInput,
+body.dark #dailySearch{
+
+    background:#334155;
+
+    color:white;
+
+}
+
+/* Footer */
+
+body.dark footer{
+
+    background:#0f172a;
+
+}
+
+/* Theme button */
+
+body.dark .theme-btn{
+
+    background:#334155;
+
+    color:#fde047;
+
+}

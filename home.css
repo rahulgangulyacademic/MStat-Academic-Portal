@@ -1,0 +1,448 @@
+/* ==========================================================
+   GENERAL
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:"Segoe UI",sans-serif;
+
+    background:#f5f7fb;
+
+    color:#1f2937;
+
+}
+
+.container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:50px 20px;
+
+    text-align:center;
+
+}
+
+h1{
+
+    font-size:42px;
+
+    color:#1e3a8a;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    font-size:18px;
+
+    color:#6b7280;
+
+    margin-bottom:50px;
+
+}
+
+
+
+
+
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 50px;
+
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+
+    color:white;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
+
+}
+
+.logo{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.logo{
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.logo span{
+
+    font-size:13px;
+
+    opacity:.9;
+
+    margin-top:3px;
+
+}
+
+.navbar ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:35px;
+
+}
+
+.navbar a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.navbar a:hover{
+
+    color:#fde047;
+
+}
+
+.active{
+
+    color:#fde047 !important;
+
+}
+
+/* ========/* ==========================================================
+   HOME CARDS
+========================================================== */
+
+.cards{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+}
+
+.card{
+
+    background:white;
+
+    width:360px;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.icon{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+.card h2{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+    font-size:28px;
+
+}
+
+.card p{
+
+    color:#555;
+
+    line-height:1.7;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:768px){
+
+    h1{
+
+        font-size:32px;
+
+    }
+
+    .card{
+
+        width:100%;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    margin-top:70px;
+
+    padding:35px;
+
+    text-align:center;
+
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+
+    color:white;
+
+    border-radius:20px 20px 0 0;
+
+    box-shadow:0 -5px 20px rgba(0,0,0,.15);
+
+}
+
+footer h3{
+
+    font-size:26px;
+
+    margin-bottom:10px;
+
+}
+
+footer p{
+
+    margin:6px 0;
+
+    font-size:16px;
+
+}
+
+.footer-text{
+
+    color:#dbeafe;
+
+    font-size:15px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   DARK MODE BUTTON
+========================================== */
+
+.theme-btn{
+
+    background:white;
+
+    color:#2563eb;
+
+    border:none;
+
+    border-radius:50%;
+
+    width:45px;
+
+    height:45px;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.theme-btn:hover{
+
+    transform:scale(1.1);
+
+    background:#f3f4f6;
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+body.dark{
+
+    --bg:#0f172a;
+    --card:#1e293b;
+
+    --text:#f8fafc;
+    --subtext:#cbd5e1;
+
+    --border:#475569;
+
+    --primary:#60a5fa;
+    --primary-dark:#3b82f6;
+
+    background:var(--bg);
+    color:var(--text);
+
+}
+
+/* Cards */
+
+body.dark .course,
+body.dark .top-header,
+body.dark .dashboard,
+body.dark details{
+
+    background:var(--card);
+    color:var(--text);
+
+}
+
+/* Tables */
+
+body.dark table{
+
+    background:var(--card);
+
+}
+
+body.dark tbody tr:nth-child(even){
+
+    background:#263244;
+
+}
+
+body.dark tbody tr:hover{
+
+    background:#334155;
+
+}
+
+/* Inputs */
+
+body.dark input,
+body.dark textarea{
+
+    background:#334155;
+
+    color:white;
+
+    border:1px solid #64748b;
+
+}
+
+/* Search box */
+
+body.dark #searchInput,
+body.dark #dailySearch{
+
+    background:#334155;
+
+    color:white;
+
+}
+
+/* Footer */
+
+body.dark footer{
+
+    background:#0f172a;
+
+}
+
+/* Theme button */
+
+body.dark .theme-btn{
+
+    background:#334155;
+
+    color:#fde047;
+
+}
