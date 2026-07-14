@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.Stat Daily Tracker</title>
+
+    <link rel="stylesheet" href="css/daily.css">
+</head>
+
+<body>
+
+
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        🎓 Rahul Ganguly
+
+        <span>M.Stat Academic Portal</span>
+
+    </div>
+
+    <ul>
+
+        <li><a href="home.html">🏠 Home</a></li>
+
+        <li><a href="daily.html">📅 Daily Tracker</a></li>
+
+        <li><a href="materials.html" class="active">📚 Course Resources</a></li>
+
+    </ul>
+
+</nav>
+
+
+
+
+
+
+<!-- ====================================================== -->
+<!-- HEADER -->
+<!-- ====================================================== -->
+
+<header class="top-header">
+
+    <h1>📚 M.Stat Daily Tracker</h1>
+
+    <div class="overall-container">
+
+        <span>Overall Semester Progress</span>
+
+        <div class="progress-bar">
+            <div id="overallProgress"></div>
+        </div>
+
+        <span id="overallPercent">0%</span>
+
+    </div>
+
+
+<div class="search-box">
+
+    <input type="text"
+           id="dailySearch"
+           placeholder="🔍 Search lectures, topics, dates...">
+
+</div>
+
+</header>
+
+
+
+
+
+
+
+
+<section class="dashboard">
+
+    <h2>📊 Semester Dashboard</h2>
+
+    <div class="dashboard-grid">
+
+        <div class="dashboard-card">
+            <h3>Total Lectures</h3>
+            <p id="totalLectures">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Completed</h3>
+            <p id="completedLectures">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Remaining</h3>
+            <p id="remainingLectures">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Overall Progress</h3>
+            <p id="dashboardProgress">0%</p>
+        </div>
+
+        <div class="dashboard-card">
+
+    <h3>Tasks Done</h3>
+
+    <p id="tasksDone">0 / 0</p>
+
+</div>
+
+<div class="dashboard-card">
+
+    <h3>🕒 Last Updated</h3>
+
+    <p id="lastUpdated">
+        Never
+    </p>
+
+</div>
+    </div>
+
+</section>
+
+
+
+
+<!-- ====================================================== -->
+<!-- STOCHASTIC PROCESS -->
+<!-- ====================================================== -->
+
+<section class="course">
+
+    <div class="course-header">
+
+        <h2>📘 Stochastic Process</h2>
+
+        <span class="coursePercent">0%</span>
+
+    </div>
+
+    <div class="progress-bar">
+        <div class="courseBar"></div>
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Lecture</th>
+                <th>Date</th>
+                <th>Main Topic</th>
+                <th>Attend</th>
+                <th>Understand</th>
+                <th>Revision</th>
+                <th>Short Notes</th>
+                <th>Daily %</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="stochastic"></tbody>
+
+    </table>
+
+</section>
+
+
+
+<!-- ====================================================== -->
+<!-- MULTIVARIATE ANALYSIS -->
+<!-- ====================================================== -->
+
+<section class="course">
+
+    <div class="course-header">
+
+        <h2>📘 Multivariate Analysis</h2>
+
+        <span class="coursePercent">0%</span>
+
+    </div>
+
+    <div class="progress-bar">
+        <div class="courseBar"></div>
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Lecture</th>
+                <th>Date</th>
+                <th>Main Topic</th>
+                <th>Attend</th>
+                <th>Understand</th>
+                <th>Revision</th>
+                <th>Short Notes</th>
+                <th>Daily %</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="multivariate"></tbody>
+
+    </table>
+
+</section>
+
+
+
+<!-- ====================================================== -->
+<!-- STATISTICAL INFERENCE -->
+<!-- ====================================================== -->
+
+<section class="course">
+
+    <div class="course-header">
+
+        <h2>📘 Statistical Inference</h2>
+
+        <span class="coursePercent">0%</span>
+
+    </div>
+
+    <div class="progress-bar">
+        <div class="courseBar"></div>
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Lecture</th>
+                <th>Date</th>
+                <th>Main Topic</th>
+                <th>Attend</th>
+                <th>Understand</th>
+                <th>Revision</th>
+                <th>Short Notes</th>
+                <th>Daily %</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="inference"></tbody>
+
+    </table>
+
+</section>
+
+
+
+<!-- ====================================================== -->
+<!-- CATEGORICAL DATA ANALYSIS -->
+<!-- ====================================================== -->
+
+<section class="course">
+
+    <div class="course-header">
+
+        <h2>📘 Categorical Data Analysis</h2>
+
+        <span class="coursePercent">0%</span>
+
+    </div>
+
+    <div class="progress-bar">
+        <div class="courseBar"></div>
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Lecture</th>
+                <th>Date</th>
+                <th>Main Topic</th>
+                <th>Attend</th>
+                <th>Understand</th>
+                <th>Revision</th>
+                <th>Short Notes</th>
+                <th>Daily %</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="categorical"></tbody>
+
+    </table>
+
+</section>
+
+
+
+<!-- ====================================================== -->
+<!-- REGRESSION TECHNIQUES -->
+<!-- ====================================================== -->
+
+<section class="course">
+
+    <div class="course-header">
+
+        <h2>📘 Regression Techniques</h2>
+
+        <span class="coursePercent">0%</span>
+
+    </div>
+
+    <div class="progress-bar">
+        <div class="courseBar"></div>
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Lecture</th>
+                <th>Date</th>
+                <th>Main Topic</th>
+                <th>Attend</th>
+                <th>Understand</th>
+                <th>Revision</th>
+                <th>Short Notes</th>
+                <th>Daily %</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="regression"></tbody>
+
+    </table>
+
+</section>
+
+
+
+<!-- Back to Top Button -->
+
+<button id="topButton">↑</button>
+
+
+<footer>
+
+    <h3>🎓 Developed by Rahul Ganguly</h3>
+
+    <p>M.Stat Student</p>
+
+    <p>Indian Statistical Institute, Kolkata</p>
+
+    <p class="footer-text">
+
+        Academic Portal • Version 1.0
+
+    </p>
+
+    <p class="footer-text">
+
+        © <span id="year"></span> All Rights Reserved
+
+    </p>
+
+</footer>
+
+<script src="js/daily.js"></script>
+<script src="js/daily-search.js"></script>
+
+<script>
+setTimeout(function(){
+    document.getElementById("dailySearch").dispatchEvent(new Event("input"));
+},500);
+</script>
+
+</body>
+
+</html>
